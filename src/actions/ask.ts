@@ -28,7 +28,12 @@ const queryModel = async (messages: Message[]) => {
   return response
 }
 
-const ask = async (messages: Messages): Promise<void> => {
+/**
+ * Feed the latest set of messages (context) to the assistant.
+ * It will execute any necessary tools in a loop and add their results to the messages array.
+ * When done, the function will resolve.
+ */
+export default async (messages: Messages): Promise<void> => {
   const response = await queryModel(messages.get());
 
   const toolCalls = response.message.tool_calls ?? []
@@ -44,4 +49,3 @@ const ask = async (messages: Messages): Promise<void> => {
   }
 }
 
-export default ask
