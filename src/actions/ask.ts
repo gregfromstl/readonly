@@ -3,6 +3,7 @@ import tools from '../tools.ts'
 import read from './read.ts'
 import type Messages from '../components/messages.ts'
 import pwd from './pwd.ts'
+import grabError from '../errors/inspect.ts'
 
 const tool = async (toolCall: ToolCall): Promise<string> => {
   switch (toolCall.function.name) {
@@ -33,7 +34,7 @@ const ask = async (messages: Messages): Promise<void> => {
   const toolCalls = response.message.tool_calls ?? []
   if (toolCalls.length > 0) {
     for (const call of toolCalls) {
-      const toolResult = await tool(call);
+      const toolResult = await tool(call).catch(grabError);
       messages.addSilently({ role: 'tool', tool_name: call.function.name, content: toolResult })
     }
 
