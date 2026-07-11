@@ -2,6 +2,7 @@ import { BoxRenderable, type CliRenderer } from "@opentui/core"
 import input from "./input";
 import ask from "../actions/ask";
 import Messages from "./messages";
+import grabError from "../errors/inspect"
 
 export default (renderer: CliRenderer) => {
   const conversation = new BoxRenderable(renderer, {
@@ -13,7 +14,8 @@ export default (renderer: CliRenderer) => {
   const messages = new Messages(renderer)
   const onSubmit = async (value: string) => {
     messages.add({ role: 'user', content: value })
-    await ask(messages)
+    const error = await ask(messages).catch(grabError)
+    if (error) console.error(error)
   }
 
   conversation.add(messages.ui)

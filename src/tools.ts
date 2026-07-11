@@ -4,14 +4,14 @@ const read: Tool = {
   type: 'function',
   function: {
     name: 'read_file',
-    description: 'Read a local file\'s contents',
+    description: 'Read a local file\'s contents.',
     parameters: {
       type: 'object',
       required: ['path'],
       properties: {
         path: {
           type: 'string',
-          description: 'The absolute path of the file to read'
+          description: 'The path of the file to read.'
         }
       }
     }
@@ -22,8 +22,16 @@ const pwd: Tool = {
   type: 'function',
   function: {
     name: 'pwd',
-    description: 'Print the current working directory'
+    description: 'Print the current working directory.'
   }
 }
 
-export default [read, pwd]
+const ls: Tool = {
+  type: 'function',
+  function: {
+    name: 'ls',
+    description: 'List information about files in a directory.'
+  }
+}
+
+export default [read, pwd, ls]

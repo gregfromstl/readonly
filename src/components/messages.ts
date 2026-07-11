@@ -7,7 +7,7 @@ export default class Messages {
   renderer: CliRenderer;
   messages: Array<Message> = [];
 
-  constructor(renderer: CliRenderer) {
+  constructor(renderer: CliRenderer, systemPrompt?: string) {
     this.renderer = renderer;
     this.ui = new ScrollBoxRenderable(this.renderer, {
       width: "100%",
@@ -19,6 +19,10 @@ export default class Messages {
         paddingBottom: 1
       }
     })
+    
+    if (systemPrompt) {
+      this.add({ role: "system", content: systemPrompt })
+    }
   }
 
   get() {
@@ -26,6 +30,7 @@ export default class Messages {
   }
 
   addSilently(message: Message) {
+    console.info(`Adding to context: ${message.content}`)
     this.messages.push(message)
   }
 
