@@ -7,7 +7,7 @@
 
 Tired of Claude adding bugs to your code? Think Codex needs to learn its place after the `rm -rf /` incident? Readonly is a CLI assistant with **ZERO** write capabilities.
 
-Inquire about your codebase in peace with no overpriveleged "automode". No arrogant bugfix suggestions from a machine that doesn't have a clue what it's talking about. Readonly is the **ONLY** way to use LLMs while preserving a 100% free-range, organically farmed codebase.
+Inquire about your codebase in peace with no overpriveleged "automode". Readonly is the **ONLY** way to use LLMs while preserving a 100% free-range, organically farmed codebase.
 
 Our Readonly guarantee promises zero writes for 30 days or your money back.[^1] 
 
