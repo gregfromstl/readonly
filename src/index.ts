@@ -12,3 +12,5 @@ renderer.console.toggle()
 
 renderer.root.add(layout(renderer));
 
+renderer.start()
+

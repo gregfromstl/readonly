@@ -43,7 +43,7 @@ const ask = async (messages: Messages): Promise<void> => {
   if (toolCalls.length > 0) {
     for (const call of toolCalls) {
       const toolResult = await tool(call).catch(grabError);
-      messages.addSilently({ role: 'tool', tool_name: call.function.name, content: toolResult })
+      messages.add({ role: 'tool', tool_name: call.function.name, content: toolResult })
     }
 
     await ask(messages)

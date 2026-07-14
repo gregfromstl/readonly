@@ -1,4 +1,4 @@
-import { MarkdownRenderable, RGBA, SyntaxStyle, type CliRenderer } from "@opentui/core";
+import { BoxRenderable, MarkdownRenderable, RGBA, SyntaxStyle, type CliRenderer } from "@opentui/core";
 
 const syntaxStyle = SyntaxStyle.fromStyles({
   "markup.heading.1": { fg: RGBA.fromHex("#58A6FF"), bold: true },
@@ -8,10 +8,22 @@ const syntaxStyle = SyntaxStyle.fromStyles({
 })
 
 export default (renderer: CliRenderer, content: string) => {
-  const AgentMessage = new MarkdownRenderable(renderer, {
+  const AssistantMessageContainer = new BoxRenderable(renderer, {
+    width: "100%",
+    paddingX: 2,
+    paddingY: 1,
+    marginBottom: 1,
+    borderStyle: "single",
+    borderColor: "#696969",
+    border: ["top", "bottom"]
+  })
+
+  const AssistantMessageContent = new MarkdownRenderable(renderer, {
     syntaxStyle,
     content
   })
 
-  return AgentMessage
+  AssistantMessageContainer.add(AssistantMessageContent);
+
+  return AssistantMessageContainer
 }

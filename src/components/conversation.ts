@@ -11,7 +11,15 @@ export default (renderer: CliRenderer) => {
     flexDirection: "column",
   })
 
-  const messages = new Messages(renderer)
+  const systemPrompt = `
+    You are a helpful coding assistant tasked with answering questions about the current codebase.
+
+    Use your available tools to understand the questions asked of you and answer them with as much expertise as possible.
+
+    When you do not know, say so.
+  `
+
+  const messages = new Messages(renderer, systemPrompt)
   const onSubmit = async (value: string) => {
     messages.add({ role: 'user', content: value })
     const error = await ask(messages).catch(grabError)
