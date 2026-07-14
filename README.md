@@ -33,6 +33,5 @@ And now you're ready to start reading. Stay safe out there!
 <img width="1304" height="1080" alt="readonly" src="https://github.com/user-attachments/assets/3a0a22d3-bc42-46dd-9f76-6e423897dea5" />
 
 
----
 [^1]: Terms and conditions may apply.
 [^2]: That risk is of course much smaller than giving Claude unrestricted sudo access like you're currently doing.
