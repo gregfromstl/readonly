@@ -1,6 +1,7 @@
 import { BoxRenderable, Text, type CliRenderer } from "@opentui/core";
 import conversation from "./conversation";
 import pwd from "../actions/pwd";
+import logo from "./logo";
 
 
 export default (renderer: CliRenderer) => {
@@ -12,6 +13,7 @@ export default (renderer: CliRenderer) => {
     flexDirection: "column",
   })
 
+  layout.add(logo(renderer))
   layout.add(conversation(renderer))
 
   pwd().then(dir => layout.add(Text({ content: dir, fg: "#696969", alignSelf: "flex-end" })))

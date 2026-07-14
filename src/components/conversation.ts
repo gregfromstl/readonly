@@ -3,6 +3,7 @@ import input from "./input";
 import ask from "../actions/ask";
 import Messages from "./messages";
 import grabError from "../errors/inspect"
+import { Spinner } from "./Spinner";
 
 export default (renderer: CliRenderer) => {
   const conversation = new BoxRenderable(renderer, {
@@ -19,14 +20,20 @@ export default (renderer: CliRenderer) => {
     When you do not know, say so.
   `
 
+  const spinner = new Spinner(renderer)
+
   const messages = new Messages(renderer, systemPrompt)
   const onSubmit = async (value: string) => {
     messages.add({ role: 'user', content: value })
+    spinner.start()
     const error = await ask(messages).catch(grabError)
+    spinner.stop()
     if (error) console.error(error)
   }
 
   conversation.add(messages.ui)
+
+  conversation.add(spinner.ui)
   conversation.add(input(renderer, onSubmit))
 
   return conversation
