@@ -5,7 +5,7 @@
 <img width="640" height="608" alt="image" src="https://github.com/user-attachments/assets/093d50a6-1110-4d9c-a314-471a1002e217" />
 </p>
 
-Tired of Claude adding bugs to your code? Think Codex needs to learn its place after deleting root? Readonly is a CLI assistant with **ZERO** write capabilities.
+Tired of Claude adding bugs to your code? Think Codex needs to learn its place after the `rm -rf /` incident? Readonly is a CLI assistant with **ZERO** write capabilities.
 
 Inquire about your codebase in peace with no overpriveleged "automode". No arrogant bugfix suggestions from a machine that doesn't have a clue what it's talking about. Readonly is the **ONLY** way to use LLMs while preserving a 100% free-range, organically farmed codebase.
 
