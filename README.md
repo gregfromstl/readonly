@@ -35,4 +35,4 @@ And now you're ready to start reading. Stay safe out there!
 
 ---
 [^1]: Terms and conditions may apply.
-[^2]: That risk is of course a hell of a lot less than giving Claude unrestricted sudo access like you're currently doing.
+[^2]: That risk is of course much smaller than giving Claude unrestricted sudo access like you're currently doing.
